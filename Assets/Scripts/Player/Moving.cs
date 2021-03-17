@@ -7,7 +7,6 @@ namespace Assets.Scripts.Player
         [SerializeField]
         private Rigidbody2D _rigidbody;
         
-        
         [SerializeField]
         private float _speed;
         private Vector2 _direction = Vector2.right;

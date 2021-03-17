@@ -7,6 +7,20 @@ namespace Assets.Scripts.Cubes
 {
     public class Spawner : MonoBehaviour
     {
+        public static Spawner Instance { get; private set; }
+        
+        public float Width
+        {
+            get => _width;
+            set => _width = value;
+        }
+        
+        public float Height
+        {
+            get => _height;
+            set => _height = value;
+        }
+
         [SerializeField]
         private List<GameObject> _cubes;
 
@@ -17,11 +31,12 @@ namespace Assets.Scripts.Cubes
         private float _width = 15;
         [SerializeField]
         private float _height = 6;
-
+                
         private float _timer;
 
         private void Start()
         {
+            Instance = this;
             _timer = _newEnemyCooldown;
         }
 
