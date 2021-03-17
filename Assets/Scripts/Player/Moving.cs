@@ -6,9 +6,10 @@ namespace Assets.Scripts.Player
     {
         [SerializeField]
         private Rigidbody2D _rigidbody;
+        
+        
         [SerializeField]
         private float _speed;
-
         private Vector2 _direction = Vector2.right;
 
         private void Start()
@@ -20,9 +21,14 @@ namespace Assets.Scripts.Player
         {
             if (collision.collider.tag == GlobalConstants.BORDER_TAG)
             {
-                _direction *= -1;
-                _rigidbody.velocity = _direction * _speed;
+                ChangePlayerDirection();
             }
+        }
+
+        private void ChangePlayerDirection()
+        {
+            _direction *= -1;
+            _rigidbody.velocity = _direction * _speed;
         }
     }
 }
